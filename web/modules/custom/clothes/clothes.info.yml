@@ -13,6 +13,7 @@ dependencies:
   - commerce_product
   - commerce_store
   - components
+  - content_translation
   - ds
   - editor
   - features
@@ -22,6 +23,7 @@ dependencies:
   - filter
   - help
   - image
+  - language
   - metatag
   - options
   - path
