@@ -1,0 +1,43 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.product_reviews
+    - field.field.comment.product_reviews.field_review_name
+    - field.field.comment.product_reviews.field_review_rating
+    - field.field.comment.product_reviews.field_review_review
+  module:
+    - options
+id: comment.product_reviews.default
+targetEntityType: comment
+bundle: product_reviews
+mode: default
+content:
+  field_review_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_review_rating:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_review_review:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

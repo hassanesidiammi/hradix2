@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.product_reviews
+    - field.storage.comment.field_review_review
+id: comment.product_reviews.field_review_review
+field_name: field_review_review
+entity_type: comment
+bundle: product_reviews
+label: Review
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

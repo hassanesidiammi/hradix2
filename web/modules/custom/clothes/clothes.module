@@ -1,0 +1,131 @@
+<?php
+
+/**
+ * @file
+ * Provides default content as taxonomy's terms.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function clothes_install() {
+  $treeName = 'product_categories';
+//  _clothes_export_taxonomies_terms($treeName);
+  _clothes_import_taxonomies_terms($treeName);
+}
+
+
+function _clothes_export_taxonomies_terms($treeName) {
+  /** @var Drupal\taxonomy\TermStorage $storage */
+  $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $terms = $storage->loadTree($treeName, 0, null, true);
+  $tree = $targetIds = $parents = [];
+
+  $nameTranslations = [];
+  $nameAlias = [];
+  foreach ($terms as $term) {
+    $tid = $term->tid->getValue()[0]['value'];
+    $name = $term->getName();
+
+    $alias = $term->path->getValue()[0]['alias'] ?? FALSE;
+    if ($alias) {
+      $name = explode('/', $alias);
+      $name = end($name);
+
+    }
+    $parent = $term->parents[0];
+    $translations = $term->getTranslationLanguages();
+    $targetIds[$tid] = $name;
+    foreach ($term->getTranslationLanguages() as $langCode => $language) {
+      $translations[$langCode] = $term->getTranslation($langCode)->getName();
+    }
+    $nameTranslations[$name] = $translations;
+    $nameAlias[$name] = $alias;
+    if ($parent) {
+      $parents[$tid] = $parent;
+      $path = [];
+      $parentId = $tid;
+      do {
+        array_unshift($path, 'children');
+        array_unshift($path, $targetIds[$parentId]);
+        $parentId = $parents[$parentId];
+      } while (is_array($parents)  && @key_exists($parentId, $parents));
+
+      $tmp = &$tree;
+      foreach ($path as $p){
+        if (!is_array($tmp) || !array_key_exists($p, $tmp)) {
+          $tmp[$p] = FALSE;
+        }
+        $tmp = &$tmp[$p];
+      }
+      unset($tmp);
+    } else {
+      $tree[$name] = [];
+      $parents[$tid] = FALSE;
+    }
+  }
+  $tree = _format_tree($tree, $nameTranslations, $nameAlias);
+
+  $path = DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', 'clothes').DIRECTORY_SEPARATOR.'extra';
+  @mkdir($path);
+
+
+  file_put_contents(
+    $path.DIRECTORY_SEPARATOR.$treeName.'.terms.yml',
+    Yaml::dump($tree, 6)
+  );
+
+}
+function _clothes_import_taxonomies_terms($treeName) {
+//  Term::create();
+  $path = DRUPAL_ROOT.DIRECTORY_SEPARATOR.drupal_get_path('module', 'clothes').DIRECTORY_SEPARATOR.'extra';
+  $tree = Yaml::parseFile($path.DIRECTORY_SEPARATOR.$treeName.'.terms.yml');
+  foreach ($tree as $item) {
+    _create_term($item, $treeName);
+  }
+}
+
+function _format_tree ($tree, $nameTranslations, $nameAlias) {
+  $formatted = $children = [];
+  foreach ($tree as $key => $item) {
+    if ('children' == $key) continue;
+    if(!empty($item['children']) && is_array($item['children']) ) {
+      $children = _format_tree($item['children'], $nameTranslations, $nameAlias);
+    }
+    $formatted[] = [
+      'name' => $key,
+      'alias' => $nameAlias[$key],
+      'translations' => $nameTranslations[$key] ?? FALSE,
+      'children' => empty($children) ? FALSE : $children,
+    ];
+  }
+  return $formatted;
+}
+function _create_term ($item, $vid, $parent=0) {
+  $term = Term::create([
+    'vid' => $vid,
+    'name' => $item['translations']['en'],
+  ]);
+  if ($parent) {
+    $term->parent = ['target_id' => $parent];
+  }
+  unset($item['translations']['en']);
+  foreach ($item['translations'] as $langCode => $translation) {
+    $term->addTranslation($langCode, [
+      'name' => $translation
+    ]);
+  }
+  $term->save();
+
+  if (empty($item['children'])){
+    return;
+  }
+
+  foreach ($item['children'] as $child ) {
+    _create_term($child, $vid, $term->tid->getValue()[0]['value']);
+  }
+}
+

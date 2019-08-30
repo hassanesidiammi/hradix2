@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: slider_600x400
+label: 'Slider (600X400)'
+effects:
+  2c4e0671-0363-424d-b5db-93acc3fdfec0:
+    uuid: 2c4e0671-0363-424d-b5db-93acc3fdfec0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 400
+      anchor: center-center

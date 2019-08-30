@@ -1,0 +1,361 @@
+-
+    name: CLOTHING
+    alias: false
+    translations:
+        en: CLOTHING
+        fr: Vêtements
+    children:
+        -
+            name: coats
+            alias: /coats
+            translations:
+                en: Coats
+            children: false
+        -
+            name: jackets
+            alias: /jackets
+            translations:
+                en: Jacket
+            children: false
+        -
+            name: bathing-suits--sarongs
+            alias: /bathing-suits--sarongs
+            translations:
+                en: 'Bathing Suits & Sarongs'
+            children:
+                -
+                    name: bathing-suits
+                    alias: /bathing-suits
+                    translations: { en: 'Bathing Suits' }
+                    children: false
+                -
+                    name: sarongs
+                    alias: /sarongs
+                    translations: { en: Sarongs }
+                    children: false
+        -
+            name: dresses
+            alias: /dresses
+            translations:
+                en: Dresses
+            children:
+                -
+                    name: bathing-suits
+                    alias: /bathing-suits
+                    translations: { en: 'Bathing Suits' }
+                    children: false
+                -
+                    name: sarongs
+                    alias: /sarongs
+                    translations: { en: Sarongs }
+                    children: false
+        -
+            name: jeans
+            alias: /jeans
+            translations:
+                en: Jeans
+            children:
+                -
+                    name: bathing-suits
+                    alias: /bathing-suits
+                    translations: { en: 'Bathing Suits' }
+                    children: false
+                -
+                    name: sarongs
+                    alias: /sarongs
+                    translations: { en: Sarongs }
+                    children: false
+        -
+            name: jumpsuits-overalls
+            alias: /jumpsuits-overalls
+            translations:
+                en: 'Jumpsuits & Overalls'
+            children:
+                -
+                    name: jumpsuits
+                    alias: /jumpsuits
+                    translations: { en: Jumpsuits }
+                    children: false
+                -
+                    name: overalls
+                    alias: /overalls
+                    translations: { en: Overalls }
+                    children: false
+        -
+            name: pants
+            alias: /pants
+            translations:
+                en: Pants
+            children:
+                -
+                    name: jumpsuits
+                    alias: /jumpsuits
+                    translations: { en: Jumpsuits }
+                    children: false
+                -
+                    name: overalls
+                    alias: /overalls
+                    translations: { en: Overalls }
+                    children: false
+        -
+            name: shorts--cropped-pants
+            alias: /shorts--cropped-pants
+            translations:
+                en: 'Shorts & Cropped Pants'
+            children:
+                -
+                    name: shorts
+                    alias: /shorts
+                    translations: { en: Shorts }
+                    children: false
+                -
+                    name: cropped-pants
+                    alias: /cropped-pants
+                    translations: { en: 'Cropped Pants' }
+                    children: false
+        -
+            name: skirts
+            alias: /skirts
+            translations:
+                en: Skirts
+            children:
+                -
+                    name: shorts
+                    alias: /shorts
+                    translations: { en: Shorts }
+                    children: false
+                -
+                    name: cropped-pants
+                    alias: /cropped-pants
+                    translations: { en: 'Cropped Pants' }
+                    children: false
+        -
+            name: suits
+            alias: /suits
+            translations:
+                en: Suits
+            children:
+                -
+                    name: shorts
+                    alias: /shorts
+                    translations: { en: Shorts }
+                    children: false
+                -
+                    name: cropped-pants
+                    alias: /cropped-pants
+                    translations: { en: 'Cropped Pants' }
+                    children: false
+        -
+            name: sweaters-knitwear
+            alias: /sweaters-knitwear
+            translations:
+                en: 'Sweaters & Knitwear'
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: tops
+            alias: /tops
+            translations:
+                en: Tops
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: wedding
+            alias: /wedding
+            translations:
+                en: Wedding
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: lingerie
+            alias: /lingerie
+            translations:
+                en: Lingerie
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: maternity-wear
+            alias: /maternity-wear
+            translations:
+                en: 'Maternity Wear'
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: pyjamas
+            alias: /pyjamas
+            translations:
+                en: Pyjamas
+            children:
+                -
+                    name: sweaters
+                    alias: /sweaters
+                    translations: { en: Sweaters }
+                    children: false
+                -
+                    name: knitwear
+                    alias: /knitwear
+                    translations: { en: knitwear }
+                    children: false
+        -
+            name: sportswear-dancewear
+            alias: /sportswear-dancewear
+            translations:
+                en: 'Sportswear & Dancewear'
+            children:
+                -
+                    name: sportswear
+                    alias: /sportswear
+                    translations: { en: Sportswear }
+                    children: false
+                -
+                    name: dancewear
+                    alias: /dancewear
+                    translations: { en: Dancewear }
+                    children: false
+-
+    name: shoes
+    alias: /shoes
+    translations:
+        en: SHOES
+    children:
+        -
+            name: ankle-boots
+            alias: /ankle-boots
+            translations:
+                en: 'Ankle Boots'
+            children: false
+        -
+            name: ballet-flats
+            alias: /ballet-flats
+            translations:
+                en: 'Ballet Flats'
+            children: false
+        -
+            name: boots
+            alias: /boots
+            translations:
+                en: Boots
+            children: false
+        -
+            name: dance-shoes
+            alias: /dance-shoes
+            translations:
+                en: 'Dance Shoes'
+            children: false
+        -
+            name: lace-up-shoes
+            alias: /lace-up-shoes
+            translations:
+                en: 'Lace Up Shoes'
+            children: false
+        -
+            name: loafers
+            alias: /loafers
+            translations:
+                en: Loafers
+            children: false
+        -
+            name: pump-sheels
+            alias: /pump-sheels
+            translations:
+                en: 'Pumps, Heels'
+            children: false
+        -
+            name: sandals
+            alias: /sandals
+            translations:
+                en: Sandals
+            children: false
+        -
+            name: slippers
+            alias: /slippers
+            translations:
+                en: Slippers
+            children: false
+        -
+            name: sneakers
+            alias: /sneakers
+            translations:
+                en: Sneakers
+            children: false
+        -
+            name: sports-sneakers
+            alias: /sports-sneakers
+            translations:
+                en: 'Sports Sneakers'
+            children: false
+-
+    name: bag
+    alias: /bag
+    translations:
+        en: BAG
+    children:
+        -
+            name: backpacks
+            alias: /backpacks
+            translations:
+                en: Backpacks
+            children: false
+        -
+            name: leather-bag
+            alias: /leather-bag
+            translations:
+                en: 'Leather bag'
+            children: false
+        -
+            name: satchels-briefcases
+            alias: /satchels-briefcases
+            translations:
+                en: 'Satchels & Briefcases'
+            children: false
+        -
+            name: small-leather-goods
+            alias: /small-leather-goods
+            translations:
+                en: 'Small Leather Goods'
+            children: false
