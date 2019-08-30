@@ -120,5 +120,6 @@ hidden:
   created: true
   field_catalog_image: true
   field_image: true
+  langcode: true
   stores: true
   uid: true

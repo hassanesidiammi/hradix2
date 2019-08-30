@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.clothing
+id: commerce_product.clothing.metatag
+field_name: metatag
+entity_type: commerce_product
+bundle: clothing
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

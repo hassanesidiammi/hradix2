@@ -45,6 +45,7 @@ hidden:
   field_short_description: true
   field_special_categories: true
   field_specifications: true
+  langcode: true
   stores: true
   title: true
   uid: true

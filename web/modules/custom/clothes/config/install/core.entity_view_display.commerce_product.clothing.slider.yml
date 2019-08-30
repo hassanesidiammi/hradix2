@@ -102,5 +102,6 @@ hidden:
   field_meta_tags: true
   field_product_reviews: true
   field_recommended_products: true
+  langcode: true
   stores: true
   uid: true

@@ -21,6 +21,7 @@ content:
       currency_display: symbol
     third_party_settings: {  }
 hidden:
+  langcode: true
   list_price: true
   product_id: true
   sku: true
