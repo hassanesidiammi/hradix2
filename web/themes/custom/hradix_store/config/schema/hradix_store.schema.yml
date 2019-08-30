@@ -1,0 +1,5 @@
+# Schema for the configuration files of the HRadix Store theme.
+
+hradix_store.settings:
+  type: theme_settings
+  label: 'HRadix Store settings'
