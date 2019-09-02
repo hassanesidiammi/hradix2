@@ -1,0 +1,378 @@
+name: product_categories
+image_settings:
+  default_image_directory: product-category
+  field_name: field_product_category_image
+children:
+  -
+    name: clothing
+    alias: false
+    translations:
+      ar: 'ملابس'
+      en: Clothing
+      fr: Vêtements
+    image: false
+    children:
+      -
+        name: 'bathing-suits-sarongs'
+        alias: false
+        translations:
+          ar: 'لباس البحر و العباءات'
+          en: 'Bathing Suits & Sarongs'
+          fr: 'Maillots De Bain & Paréos'
+        image: false
+        children:
+          -
+            name: 'Bathing Suits'
+            alias: '/bathing-suits'
+            translations:
+              ar: 'لباس البحر'
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+            image: 'bathing-suit.jpg'
+            children: false
+          -
+            name: sarongs
+            alias: '/sarongs'
+            translations:
+              ar: 'العباءات'
+              en: Sarongs
+              fr: 'Paréos Femme'
+            image: 'sarongs.jpg'
+            children: false
+      -
+        name: coats
+        alias: '/coats'
+        translations:
+          ar: 'المعاطف'
+          en: Coats
+          fr: Manteaux
+        image: 'coat.jpg'
+      -
+        name: dresses
+        alias: '/dresses'
+        translations:
+          ar: 'فساتين'
+          en: Dresses
+          fr: Robes
+        image: 'dresses.jpg'
+      -
+        name: jackets
+        alias: '/jackets'
+        translations:
+          ar: 'السترات'
+          en: Jackets
+          fr: Vestes
+        image: 'jacket.jpg'
+      -
+        name: jeans
+        alias: '/jeans'
+        translations:
+          ar: 'جينز'
+          en: Jeans
+          fr: Jeans
+        image: 'jeans.jpg'
+      -
+        name: 'jumpsuits-overalls'
+        alias: '/jumpsuits-overalls'
+        translations:
+          ar: 'بذلة & زرة'
+          en: 'Jumpsuits & Overalls'
+          fr: 'Combinaisons & Salopettes'
+        image: false
+        children:
+          -
+            name: jumpsuits
+            alias: '/jumpsuits'
+            translations:
+              ar: 'بذلة'
+              en: Jumpsuits
+              fr: Combinaisons
+            image: 'jumpsuits.jpg'
+            children: false
+          -
+            name: overalls
+            alias: '/overalls'
+            translations:
+              ar: 'زرة'
+              en: Overalls
+              fr: Salopette
+            image: 'overalls.jpg'
+            children: false
+      -
+        name: lingerie
+        alias: '/lingerie'
+        translations:
+          ar: 'الملابس الداخلية'
+          en: Lingerie
+          fr: Lingerie
+        image: 'lingerie.jpg'
+      -
+        name: 'maternity-wear'
+        alias: '/maternity-wear'
+        translations:
+          ar: 'ملابس الأمومة'
+          en: 'Maternity Wear'
+          fr: 'Future Maman'
+        image: false
+        children: 'maternity-wear.jpg'
+      -
+        name: pants
+        alias: '/pants'
+        translations:
+          ar: 'سروال'
+          en: Pants
+          fr: Pantalons
+        image: false
+        children: false
+      -
+        name: pyjamas
+        alias: '/pyjamas'
+        translations:
+          ar: 'لباس النوم'
+          en: Pyjamas
+          fr: 'Vêtements de nuit'
+        image: 'pyjama.jpg'
+        children: false
+      -
+        name: 'shorts-cropped-pants'
+        alias: '/shorts-cropped-pants'
+        translations:
+          ar: 'السراويل القصيرة'
+          en: 'Shorts & Cropped Pants'
+          fr: 'Shorts & Pantacourts'
+        image: false
+        children:
+          -
+            name: 'cropped-pants'
+            alias: '/cropped-pants'
+            translations:
+              ar: 'السراويل المقصوصة'
+              en: 'Cropped Pants'
+              fr: 'Pantacourts'
+            image: 'cropped-pants.jpg'
+            children: false
+          -
+            name: short
+            alias: '/short'
+            translations:
+              ar: 'السراويل القصيرة'
+              en: Short
+              fr: Short
+            image: 'shorts.jpg'
+            children: false
+      -
+        name: skirts
+        alias: '/skirts'
+        translations:
+          ar: 'التنانير'
+          en: Skirts
+          fr: Jupes
+        image: 'skirts.jpg'
+        children: false
+      -
+        name: 'sportswear-dancewear'
+        alias: '/sportswear-dancewear'
+        translations:
+          ar: 'ملابس رياضية و رقص'
+          en: 'Sportswear & Dancewear'
+          fr: 'Sport et Dance'
+        image: false
+        children:
+          -
+            name: dancewear
+            alias: '/dancewear'
+            translations:
+              ar: 'ملابس الرقص'
+              en: Dancewear
+              fr: Dance
+            image: 'dance-wear.jpg'
+            children: false
+          -
+            name: sportswear
+            alias: '/sportswear'
+            translations:
+              ar: 'ملابس رياضية'
+              en: Sportswear
+              fr: Sport
+            image: 'sport.jpg'
+            children: false
+      -
+        name: suits
+        alias: false
+        translations:
+          ar: 'بذلة'
+          en: Suits
+          fr: Tailleurs
+        image: 'suits.jpg'
+        children: false
+      -
+        name: 'sweaters-knitwear'
+        alias: '/sweaters-knitwear'
+        translations:
+          ar: 'قميص صوفي و تريكو'
+          en: 'Sweaters & Knitwear'
+          fr: 'Pulls & Mailles'
+        image: 'sweaters-knitwear.jpg'
+        children: false
+      -
+        name: tops
+        alias: '/tops'
+        translations:
+          ar: 'ملابس الفوق'
+          en: Tops
+          fr: Hauts
+        image: 'top.png'
+        children: false
+      -
+        name: wedding
+        alias: '/wedding'
+        translations:
+          ar: 'زفاف'
+          en: Wedding
+          fr: Mariage
+        image: 'wedding.jpg'
+        children: false
+  -
+    name: bag
+    alias: '/bag'
+    translations:
+      ar: 'حقائب'
+      en: BAG
+      fr: Sacs
+    image: 'bags.jpg'
+    children:
+      -
+        name: backpacks
+        alias: '/backpacks'
+        translations:
+          ar: 'حقائب الظهر'
+          en: Backpacks
+          fr: 'Sacs à dos'
+        image: 'backpacks.jpg'
+        children: false
+      -
+        name: 'leather-bag'
+        alias: '/leather-bag'
+        translations:
+          ar: 'حقائب جلدية'
+          en: 'Leather bag'
+          fr: 'Sac en cuir'
+        image: 'leather-bags.jpg'
+        children: false
+      -
+        name: 'satchels-briefcases'
+        alias: '/satchels-briefcases'
+        translations:
+          ar: 'حقائب مدرسية & حقائب مكتبية'
+          en: 'Satchels & Briefcases'
+          fr: 'Sacoches & Mallettes'
+        image: 'satchels.jpg'
+        children: false
+      -
+        name: 'small Leather Goods'
+        alias: '/small-leather-goods'
+        translations:
+          ar: 'حقائب جلدية صغيرة'
+          en: 'Small Leather Goods'
+          fr: 'Petite maroquinerie'
+        image: 'small-leather-goods.jpg'
+        children: false
+  -
+    name: shoes
+    alias: '/shoes'
+    translations:
+      ar: 'أحذية'
+      en: SHOES
+      fr: CHAUSSURES
+    image: false
+    children:
+      -
+        name: 'ankle-boots'
+        alias: '/ankle-boots'
+        translations:
+          ar: 'أحذية الكاحل'
+          en: 'Ankle Boots'
+          fr: 'Bottines & low boots'
+        image: 'shoes.jpg'
+        children: false
+      -
+        name: 'ballet flats'
+        alias: '/ballet-flats'
+        translations:
+          ar: 'أحذية منخفضة'
+          en: 'Ballet Flats'
+          fr: 'Ballerines'
+        image: 'ballet-flats.jpg'
+        children: false
+      -
+        name: boots
+        alias: '/boots'
+        translations:
+          ar: 'أحذية عالية'
+          en: Boots
+          fr: Bottes
+        image: 'boots.jpg'
+        children: false
+      -
+        name: 'dance shoes'
+        alias: '/dance-shoes'
+        translations:
+          ar: 'أحذية الرقص'
+          en: 'Dance Shoes'
+          fr: 'Chaussures de danse'
+        image: 'dance-shoes.jpg'
+        children: false
+      -
+        name: 'lace up shoes'
+        alias: '/lace-up-shoes'
+        translations:
+          ar: 'أحذية السير'
+          en: 'Lace Up Shoes'
+          fr: 'Chaussures à lacets'
+        image: 'lace-up-shoes.jpg'
+        children: false
+      -
+        name: loafers
+        alias: '/loafers'
+        translations:
+          ar: 'أحذية بدون كعب'
+          en: Loafers
+          fr: 'Mocassins'
+        image: 'loafers.jpg'
+        children: false
+      -
+        name: 'pumps, heels'
+        alias: '/pumps-heels'
+        translations:
+          ar: 'أحذية الكعب'
+          en: 'Pumps, Heels'
+          fr: 'Escarpins'
+        image: 'pumps-heels.jpg'
+        children: false
+      -
+        name: sandals
+        alias: '/sandals'
+        translations:
+          ar: 'خف, صندل'
+          en: Sandals
+          fr: 'Sandales, nu-pieds'
+        image: false
+        children: false
+      -
+        name: slippers
+        alias: '/slippers'
+        translations:
+          ar: 'النعال'
+          en: Slippers
+          fr: 'Chaussons & pantoufles'
+        image: 'slippers.jpg'
+        children: false
+      -
+        name: 'sneakers & sport sneakers'
+        alias: '/sneakers-sport-sneakers'
+        translations:
+          ar: 'أحذية رياضية & أحذية شبه رياضية'
+          en: 'Sneakers & Sport Sneakers'
+          fr: 'Baskets & Chaussures de sport'
+        image: 'sneakers.jpg'
+        children: false
