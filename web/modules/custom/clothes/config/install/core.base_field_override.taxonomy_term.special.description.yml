@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.special
+  module:
+    - text
+id: taxonomy_term.special.description
+field_name: description
+entity_type: taxonomy_term
+bundle: special
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * Provides default content as taxonomy's terms.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Symfony\Component\Yaml\Yaml;
+
+

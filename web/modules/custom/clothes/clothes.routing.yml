@@ -1,0 +1,7 @@
+clothes.taxonomies_form:
+  path: '/admin/taxonomies-form/{hash}'
+  defaults:
+    _form:  '\Drupal\clothes\Form\TaxonomiesForm'
+    _title: 'Taxonomies Form'
+  requirements:
+    _permission: 'access content'

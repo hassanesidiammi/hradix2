@@ -1,0 +1,40 @@
+name: Clothes
+type: module
+core: 8.x
+dependencies:
+  - address
+  - block
+  - ckeditor
+  - comment
+  - commerce
+  - commerce_cart
+  - commerce_checkout
+  - commerce_price
+  - commerce_product
+  - commerce_store
+  - components
+  - content_translation
+  - ds
+  - editor
+  - features
+  - features_ui
+  - field
+  - file
+  - filter
+  - help
+  - image
+  - language
+  - metatag
+  - options
+  - path
+  - rdf
+  - readmehelp
+  - search
+  - slick
+  - slick_views
+  - system
+  - taxonomy
+  - text
+  - user
+  - views
+version: 8.x-1.0-beta1

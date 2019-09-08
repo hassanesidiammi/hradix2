@@ -1,0 +1,125 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.clothing
+    - core.entity_view_display.comment.product_reviews.default
+    - field.field.commerce_product.clothing.body
+    - field.field.commerce_product.clothing.field_brand
+    - field.field.commerce_product.clothing.field_catalog_image
+    - field.field.commerce_product.clothing.field_categories
+    - field.field.commerce_product.clothing.field_image
+    - field.field.commerce_product.clothing.field_meta_tags
+    - field.field.commerce_product.clothing.field_product_reviews
+    - field.field.commerce_product.clothing.field_recommended_products
+    - field.field.commerce_product.clothing.field_short_description
+    - field.field.commerce_product.clothing.field_special_categories
+    - field.field.commerce_product.clothing.field_specifications
+    - field.field.commerce_product.clothing.stores
+    - field.field.commerce_product.clothing.variations
+  module:
+    - comment
+    - commerce_product
+    - ds
+    - metatag
+    - text
+id: commerce_product.clothing.default
+targetEntityType: commerce_product
+bundle: clothing
+mode: default
+content:
+  body:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_brand:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_categories:
+    weight: 6
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_meta_tags:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_product_reviews:
+    weight: 9
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_recommended_products:
+    weight: 10
+    label: above
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    type: entity_reference_entity_view
+    region: content
+  field_short_description:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_special_categories:
+    weight: 7
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_specifications:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  variations:
+    type: commerce_add_to_cart
+    weight: 3
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_catalog_image: true
+  field_image: true
+  langcode: true
+  stores: true
+  uid: true
