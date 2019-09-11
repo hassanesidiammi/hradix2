@@ -19,6 +19,7 @@ class TaxonomiesForm extends FormBase {
   protected $fileExtension;
   protected $buttonsValue;
   protected $imageSettings;
+  protected $menuSettings;
   protected $configurationYML;
 
   public function __construct() {
@@ -202,6 +203,7 @@ class TaxonomiesForm extends FormBase {
     $nameTranslations = [];
     $nameAlias = [];
     $nameImages = [];
+    $nameMenuItems = [];
     $imagesField = [];
 
     foreach ($terms as $term) {
@@ -224,6 +226,19 @@ class TaxonomiesForm extends FormBase {
       $nameTranslations[$name] = $translations;
       $nameAlias[$name] = $alias;
       $nameImages[$name] = $this->getImageUri($term, $imagesField[$name]);
+      $menu =  taxonomy_menu_ui_get_menu_link_defaults($term);
+      $nameMenuItems[$name] = !empty($menu['entity_id']) ? array_intersect_key(
+        $menu,[
+        'entity_id' => 0,
+          'id' => '',
+          'title' => '',
+          'title_max_length' => 255,
+          'description' => '',
+          'menu_name' => 'main',
+          'parent' => '',
+          'weight' => 0
+        ]
+      ) : FALSE;
       if ($parent) {
         $parents[$tid] = $parent;
         $path = [];
@@ -248,10 +263,22 @@ class TaxonomiesForm extends FormBase {
       }
     }
 
-    $taxonomiesTerms = $this->formatTree($taxonomiesTerms, $nameTranslations, $nameAlias, $nameImages);
+    $taxonomiesTerms = $this->formatTree($taxonomiesTerms, $nameTranslations, $nameAlias, $nameImages, $nameMenuItems);
+
+    $menuSetings = [];
+    foreach ($nameMenuItems as $menu) {
+      if(!empty($menu['menu_name'])) {
+        $menuSetings['menu_name'] = $menu['menu_name'];
+        $menuSetings['title_max_length'] = $menu['title_max_length'] ?: 100;
+        $menuSetings['weight'] = $menu['weight'] ?: 0;
+        break;
+      }
+    }
+
     $taxonomiesTerms = [
       'name' =>$vocabularyName,
       'image_settings' => $this->imageSettings,
+      'menu_settings' => $menuSetings,
       'children' =>$taxonomiesTerms,
     ];
 
@@ -266,7 +293,7 @@ class TaxonomiesForm extends FormBase {
     @mkdir($this->exportDir);
     file_put_contents(
       $this->exportDir.$vocabularyName.$this->fileExtension,
-      Yaml::dump($taxonomiesTerms, 8)
+      Yaml::dump($taxonomiesTerms, 8, 2)
     );
   }
 
@@ -322,6 +349,7 @@ class TaxonomiesForm extends FormBase {
     }
 
     $this->imageSettings = $terms['image_settings'];
+    $this->menuSettings = $terms['menu_settings'];
     foreach ($terms['children'] as $term) {
       $this->clothesCreateTerm(
         $term,
@@ -362,18 +390,23 @@ class TaxonomiesForm extends FormBase {
       ]);
     }
     if (!empty($image = $item['image'])){
-      $imageName='';
-      if (is_array($image)){
-        $imageName = $image['file_name'];
-      } else {
-        $imageName = $image;
-      }
+      $imageName = is_array($image) ? $image['file_name'] : $image;
       $image = $this->imagesDir.$vid.'/'.$imageName;
       if (file_exists($image)){
         $imageDest = $fileSystem->copy($image, 'public://'.$this->imageSettings['default_image_directory'], FileSystem::EXISTS_REPLACE);
         $this->setImage($term, $imageDest);
       }
     }
+    if($item['menu']) {
+      if(!is_array($item['menu'])) {
+        $item['menu'] = ['title' => is_string($item['menu']) ? $item['menu'] : $term->getTranslation('en')->getName()];
+      }
+      $item['menu'] = $item['menu'] = array_merge(
+        $this->menuSettings,
+        $item['menu']
+      );
+    }
+
     $term->save();
 
     if (empty($item['children'])){
@@ -385,18 +418,19 @@ class TaxonomiesForm extends FormBase {
     }
   }
 
-  function formatTree ($taxonomiesTerms, $nameTranslations, $nameAlias, $images) {
+  function formatTree ($taxonomiesTerms, $nameTranslations, $nameAlias, $images, $nameMenuItems) {
     $formatted = $children = [];
     foreach ($taxonomiesTerms as $key => $item) {
       if ('children' == $key) continue;
       if(!empty($item['children']) && is_array($item['children']) ) {
-        $children = $this->formatTree($item['children'], $nameTranslations, $nameAlias, $images);
+        $children = $this->formatTree($item['children'], $nameTranslations, $nameAlias, $images, $nameMenuItems);
       }
       $formatted[] = [
         'name' => $key,
         'alias' => $nameAlias[$key],
         'translations' => $nameTranslations[$key] ?? FALSE,
         'image' => $images[$key] ? $images[$key] : FALSE,
+        'menu' => $nameMenuItems[$key] ? $nameMenuItems[$key] : FALSE,
         'children' => empty($children) ? FALSE : $children,
       ];
     }

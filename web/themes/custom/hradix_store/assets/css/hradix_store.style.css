@@ -9584,3 +9584,7 @@ a.text-dark:hover, a.text-dark:focus {
 .invisible {
   visibility: hidden !important;
 }
+
+.block--views-clothes-slider-block a, .block--views-clothes-slider-block .slick-arrow::before {
+  color: #dc3545;
+}
