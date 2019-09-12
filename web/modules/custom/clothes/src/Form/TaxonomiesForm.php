@@ -20,12 +20,14 @@ class TaxonomiesForm extends FormBase {
   protected $buttonsValue;
   protected $imageSettings;
   protected $menuSettings;
+  protected $menuIds;
   protected $configurationYML;
 
   public function __construct() {
     $this->exportDir = DRUPAL_ROOT.'/'.drupal_get_path('module', 'clothes').'/export/config/';
     $this->imagesDir = DRUPAL_ROOT.'/'.drupal_get_path('module', 'clothes').'/export/images/';
     $this->fileExtension = '.terms.yml';
+    $this->menuIds = [];
     $this->configurationYML = '';
     $this->buttonsValue = [
       'import' => $this->t('Import from Yaml file'),
@@ -198,7 +200,7 @@ class TaxonomiesForm extends FormBase {
     /** @var \Drupal\taxonomy\TermStorage $storage */
     $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     $terms = $storage->loadTree($vocabularyName, 0, null, true);
-    $taxonomiesTerms = $targetIds = $parents = [];
+    $taxonomiesTerms = $targetIds = $parents = $menus = [];
 
     $nameTranslations = [];
     $nameAlias = [];
@@ -239,6 +241,7 @@ class TaxonomiesForm extends FormBase {
           'weight' => 0
         ]
       ) : FALSE;
+
       if ($parent) {
         $parents[$tid] = $parent;
         $path = [];
@@ -355,20 +358,23 @@ class TaxonomiesForm extends FormBase {
         $term,
         $vocabularyName,
         0,
+        NULL,
         \Drupal::service('file_system')
       );
     }
+
+    return TRUE;
   }
 
   /**
    * @param $item
    * @param $vid
-   * @param int $parent
-   * @param $destDir
-   * @param $fieldName
+   * @param int $parentId
    * @param \Drupal\Core\File\FileSystem $fileSystem
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function clothesCreateTerm ($item, $vid, $parent=0,FileSystem $fileSystem) {
+  protected function clothesCreateTerm ($item, $vid, $parentId=0, $parentName, FileSystem $fileSystem) {
     $term = [
       'vid' => $vid,
       'name' => $item['translations']['en'],
@@ -380,8 +386,8 @@ class TaxonomiesForm extends FormBase {
       ];
     }
     $term = Term::create($term);
-    if ($parent) {
-      $term->parent = ['target_id' => $parent];
+    if ($parentId) {
+      $term->parent = ['target_id' => $parentId];
     }
     unset($item['translations']['en']);
     foreach ($item['translations'] as $langCode => $translation) {
@@ -397,24 +403,40 @@ class TaxonomiesForm extends FormBase {
         $this->setImage($term, $imageDest);
       }
     }
+    $term->save();
+
+
     if($item['menu']) {
       if(!is_array($item['menu'])) {
         $item['menu'] = ['title' => is_string($item['menu']) ? $item['menu'] : $term->getTranslation('en')->getName()];
       }
-      $item['menu'] = $item['menu'] = array_merge(
+
+      $item['menu'] = array_merge(
         $this->menuSettings,
         $item['menu']
       );
+      $values = [
+        'enabled' => 1,
+        'id' => "",
+        'entity_id' => 0,
+        'title' => $item['menu']['title'],
+        'description' => "",
+        'parent' => $this->menuIds[$parentName] ?? ($item['menu']['menu_name'].':'),
+        'weight' => $item['menu']['weight'],
+        'menu_name' => $item['menu']['menu_name'],
+      ];
+      _menu_ui_taxonomy_term_save($term, $values);
+      $this->menuIds[$item['name']] = taxonomy_menu_ui_get_menu_link_defaults($term)['id'];
+      $term->save();
     }
 
-    $term->save();
 
     if (empty($item['children'])){
       return;
     }
 
     foreach ($item['children'] as $child ) {
-      $this->clothesCreateTerm($child, $vid, $term->tid->getValue()[0]['value'],$fileSystem);
+      $this->clothesCreateTerm($child, $vid, $term->tid->getValue()[0]['value'], $item['name'], $fileSystem);
     }
   }
 

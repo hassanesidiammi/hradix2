@@ -18,15 +18,7 @@ children:
       file_name: bags.jpg
       directory: product-category
       uri: 'public://product-category/bags.jpg'
-    menu:
-      entity_id: '2'
-      id: 'menu_link_content:3bbd8a8b-5fe6-4c3b-a0ea-c4e931c9ca15'
-      title: BAG
-      title_max_length: 255
-      description: null
-      menu_name: main
-      parent: ''
-      weight: 1
+    menu: true
     children:
       -
         name: backpacks
@@ -39,7 +31,7 @@ children:
           file_name: backpacks.jpg
           directory: product-category
           uri: 'public://product-category/backpacks.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: leather-bag
@@ -52,7 +44,7 @@ children:
           file_name: leather-bags.jpg
           directory: product-category
           uri: 'public://product-category/leather-bags.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: satchels-briefcases
@@ -65,8 +57,7 @@ children:
           file_name: satchels.jpg
           directory: product-category
           uri: 'public://product-category/satchels.jpg'
-        menu: false
-        children: false
+        menu: true
       -
         name: small-leather-goods
         alias: /small-leather-goods
@@ -78,7 +69,7 @@ children:
           file_name: small-leather-goods.jpg
           directory: product-category
           uri: 'public://product-category/small-leather-goods.jpg'
-        menu: false
+        menu: true
         children: false
   -
     name: Clothing
@@ -88,7 +79,7 @@ children:
       fr: Vêtements
       ar: ملابس
     image: false
-    menu: false
+    menu: true
     children:
       -
         name: 'Bathing Suits & Sarongs'
@@ -98,7 +89,7 @@ children:
           fr: 'Maillots De Bain & Paréos'
           ar: 'لباس البحر و العباءات'
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: bathing-suits
@@ -111,7 +102,7 @@ children:
               file_name: bathing-suit.jpg
               directory: product-category
               uri: 'public://product-category/bathing-suit.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sarongs
@@ -124,7 +115,7 @@ children:
               file_name: sarongs.jpg
               directory: product-category
               uri: 'public://product-category/sarongs.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: coats
@@ -137,7 +128,7 @@ children:
           file_name: coat.jpg
           directory: product-category
           uri: 'public://product-category/coat.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: bathing-suits
@@ -150,7 +141,7 @@ children:
               file_name: bathing-suit.jpg
               directory: product-category
               uri: 'public://product-category/bathing-suit.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sarongs
@@ -163,7 +154,7 @@ children:
               file_name: sarongs.jpg
               directory: product-category
               uri: 'public://product-category/sarongs.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: dresses
@@ -176,7 +167,7 @@ children:
           file_name: dresses.jpg
           directory: product-category
           uri: 'public://product-category/dresses.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: bathing-suits
@@ -189,7 +180,7 @@ children:
               file_name: bathing-suit.jpg
               directory: product-category
               uri: 'public://product-category/bathing-suit.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sarongs
@@ -202,7 +193,7 @@ children:
               file_name: sarongs.jpg
               directory: product-category
               uri: 'public://product-category/sarongs.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: jackets
@@ -215,7 +206,7 @@ children:
           file_name: jacket.jpg
           directory: product-category
           uri: 'public://product-category/jacket.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: bathing-suits
@@ -228,7 +219,7 @@ children:
               file_name: bathing-suit.jpg
               directory: product-category
               uri: 'public://product-category/bathing-suit.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sarongs
@@ -241,7 +232,7 @@ children:
               file_name: sarongs.jpg
               directory: product-category
               uri: 'public://product-category/sarongs.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: jeans
@@ -254,7 +245,7 @@ children:
           file_name: jeans.jpg
           directory: product-category
           uri: 'public://product-category/jeans.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: bathing-suits
@@ -267,7 +258,7 @@ children:
               file_name: bathing-suit.jpg
               directory: product-category
               uri: 'public://product-category/bathing-suit.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sarongs
@@ -280,7 +271,7 @@ children:
               file_name: sarongs.jpg
               directory: product-category
               uri: 'public://product-category/sarongs.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: jumpsuits-overalls
@@ -290,7 +281,7 @@ children:
           fr: 'Combinaisons & Salopettes'
           ar: 'بذلة & زرة'
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: jumpsuits
@@ -303,7 +294,7 @@ children:
               file_name: jumpsuits.jpg
               directory: product-category
               uri: 'public://product-category/jumpsuits.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: overalls
@@ -316,7 +307,7 @@ children:
               file_name: overalls.jpg
               directory: product-category
               uri: 'public://product-category/overalls.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: lingerie
@@ -329,7 +320,7 @@ children:
           file_name: lingerie.jpg
           directory: product-category
           uri: 'public://product-category/lingerie.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: jumpsuits
@@ -342,7 +333,7 @@ children:
               file_name: jumpsuits.jpg
               directory: product-category
               uri: 'public://product-category/jumpsuits.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: overalls
@@ -355,7 +346,7 @@ children:
               file_name: overalls.jpg
               directory: product-category
               uri: 'public://product-category/overalls.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: maternity-wear
@@ -365,7 +356,7 @@ children:
           fr: 'Future Maman'
           ar: 'ملابس الأمومة'
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: jumpsuits
@@ -378,7 +369,7 @@ children:
               file_name: jumpsuits.jpg
               directory: product-category
               uri: 'public://product-category/jumpsuits.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: overalls
@@ -391,7 +382,7 @@ children:
               file_name: overalls.jpg
               directory: product-category
               uri: 'public://product-category/overalls.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: pants
@@ -401,7 +392,7 @@ children:
           fr: Pantalons
           ar: سروال
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: jumpsuits
@@ -414,7 +405,7 @@ children:
               file_name: jumpsuits.jpg
               directory: product-category
               uri: 'public://product-category/jumpsuits.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: overalls
@@ -427,7 +418,7 @@ children:
               file_name: overalls.jpg
               directory: product-category
               uri: 'public://product-category/overalls.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: pyjamas
@@ -440,7 +431,7 @@ children:
           file_name: pyjama.jpg
           directory: product-category
           uri: 'public://product-category/pyjama.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: jumpsuits
@@ -453,7 +444,7 @@ children:
               file_name: jumpsuits.jpg
               directory: product-category
               uri: 'public://product-category/jumpsuits.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: overalls
@@ -466,7 +457,7 @@ children:
               file_name: overalls.jpg
               directory: product-category
               uri: 'public://product-category/overalls.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: shorts-cropped-pants
@@ -476,7 +467,7 @@ children:
           fr: 'Shorts & Pantacourts'
           ar: 'السراويل القصيرة'
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: cropped-pants
@@ -489,7 +480,7 @@ children:
               file_name: cropped-pants.jpg
               directory: product-category
               uri: 'public://product-category/cropped-pants.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: short
@@ -502,7 +493,7 @@ children:
               file_name: shorts.jpg
               directory: product-category
               uri: 'public://product-category/shorts.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: skirts
@@ -515,7 +506,7 @@ children:
           file_name: skirts.jpg
           directory: product-category
           uri: 'public://product-category/skirts.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: cropped-pants
@@ -528,7 +519,7 @@ children:
               file_name: cropped-pants.jpg
               directory: product-category
               uri: 'public://product-category/cropped-pants.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: short
@@ -541,7 +532,7 @@ children:
               file_name: shorts.jpg
               directory: product-category
               uri: 'public://product-category/shorts.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: sportswear-dancewear
@@ -551,7 +542,7 @@ children:
           fr: 'Sport et Dance'
           ar: 'ملابس رياضية و رقص'
         image: false
-        menu: false
+        menu: true
         children:
           -
             name: dancewear
@@ -564,7 +555,7 @@ children:
               file_name: dance-wear.jpg
               directory: product-category
               uri: 'public://product-category/dance-wear.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sportswear
@@ -577,7 +568,7 @@ children:
               file_name: sport.jpg
               directory: product-category
               uri: 'public://product-category/sport.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: Suits
@@ -590,7 +581,7 @@ children:
           file_name: suits.jpg
           directory: product-category
           uri: 'public://product-category/suits.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: dancewear
@@ -603,7 +594,7 @@ children:
               file_name: dance-wear.jpg
               directory: product-category
               uri: 'public://product-category/dance-wear.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sportswear
@@ -616,7 +607,7 @@ children:
               file_name: sport.jpg
               directory: product-category
               uri: 'public://product-category/sport.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: sweaters-knitwear
@@ -629,7 +620,7 @@ children:
           file_name: sweaters-knitwear.jpg
           directory: product-category
           uri: 'public://product-category/sweaters-knitwear.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: dancewear
@@ -642,7 +633,7 @@ children:
               file_name: dance-wear.jpg
               directory: product-category
               uri: 'public://product-category/dance-wear.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sportswear
@@ -655,7 +646,7 @@ children:
               file_name: sport.jpg
               directory: product-category
               uri: 'public://product-category/sport.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: tops
@@ -668,7 +659,7 @@ children:
           file_name: top.png
           directory: product-category
           uri: 'public://product-category/top.png'
-        menu: false
+        menu: true
         children:
           -
             name: dancewear
@@ -681,7 +672,7 @@ children:
               file_name: dance-wear.jpg
               directory: product-category
               uri: 'public://product-category/dance-wear.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sportswear
@@ -694,7 +685,7 @@ children:
               file_name: sport.jpg
               directory: product-category
               uri: 'public://product-category/sport.jpg'
-            menu: false
+            menu: true
             children: false
       -
         name: wedding
@@ -707,7 +698,7 @@ children:
           file_name: wedding.jpg
           directory: product-category
           uri: 'public://product-category/wedding.jpg'
-        menu: false
+        menu: true
         children:
           -
             name: dancewear
@@ -720,7 +711,7 @@ children:
               file_name: dance-wear.jpg
               directory: product-category
               uri: 'public://product-category/dance-wear.jpg'
-            menu: false
+            menu: true
             children: false
           -
             name: sportswear
@@ -733,7 +724,7 @@ children:
               file_name: sport.jpg
               directory: product-category
               uri: 'public://product-category/sport.jpg'
-            menu: false
+            menu: true
             children: false
   -
     name: shoes
@@ -743,7 +734,7 @@ children:
       fr: CHAUSSURES
       ar: أحذية
     image: false
-    menu: false
+    menu: true
     children:
       -
         name: ankle-boots
@@ -756,7 +747,7 @@ children:
           file_name: shoes.jpg
           directory: product-category
           uri: 'public://product-category/shoes.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: ballet-flats
@@ -769,7 +760,7 @@ children:
           file_name: ballet-flats.jpg
           directory: product-category
           uri: 'public://product-category/ballet-flats.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: boots
@@ -782,7 +773,7 @@ children:
           file_name: boots.jpg
           directory: product-category
           uri: 'public://product-category/boots.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: dance-shoes
@@ -795,7 +786,7 @@ children:
           file_name: dance-shoes.jpg
           directory: product-category
           uri: 'public://product-category/dance-shoes.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: lace-up-shoes
@@ -808,7 +799,7 @@ children:
           file_name: lace-up-shoes.jpg
           directory: product-category
           uri: 'public://product-category/lace-up-shoes.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: loafers
@@ -821,7 +812,7 @@ children:
           file_name: loafers.jpg
           directory: product-category
           uri: 'public://product-category/loafers.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: pumps-heels
@@ -834,7 +825,7 @@ children:
           file_name: pumps-heels.jpg
           directory: product-category
           uri: 'public://product-category/pumps-heels.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: sandals
@@ -844,7 +835,7 @@ children:
           fr: 'Sandales, nu-pieds'
           ar: 'خف, صندل'
         image: false
-        menu: false
+        menu: true
         children: false
       -
         name: slippers
@@ -857,7 +848,7 @@ children:
           file_name: slippers.jpg
           directory: product-category
           uri: 'public://product-category/slippers.jpg'
-        menu: false
+        menu: true
         children: false
       -
         name: sneakers-sport-sneakers
@@ -870,5 +861,5 @@ children:
           file_name: sneakers.jpg
           directory: product-category
           uri: 'public://product-category/sneakers.jpg'
-        menu: false
+        menu: true
         children: false
