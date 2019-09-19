@@ -1,3 +1,21 @@
 .block--views-clothes-slider-block a, .block--views-clothes-slider-block .slick-arrow::before {
   color: $danger;
 }
+
+.navbar-light {
+  //background: $orange;
+  background: rgb(rgba($orange, 0.05));
+}
+.breadcrumb {
+  padding: 0.05rem 1rem 0.5rem 1rem;
+  margin-bottom: 0.3rem;
+  list-style: none;
+  background: none;
+}
+.breadcrumb li {
+  font-size: 0.9rem;
+}
+body {
+  //background: $orange;
+  background: rgba($orange, 0.01);
+}
