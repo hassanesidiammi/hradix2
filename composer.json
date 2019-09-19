@@ -51,6 +51,7 @@
         "drupal/slick": "^1.1",
         "drupal/slick_views": "^2.0",
         "drupal/swiftmailer": "~1.0",
+        "drupal/taxonomy_menu_ui": "^1.0",
         "drupal/token": "~1.0",
         "drupal/toolbar_menu": "^2.1",
         "drupalcommerce/commerce_base": "dev-8.x-1.x",
