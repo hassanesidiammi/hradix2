@@ -2,377 +2,864 @@ name: product_categories
 image_settings:
   default_image_directory: product-category
   field_name: field_product_category_image
+menu_settings:
+  menu_name: main
+  title_max_length: 255
+  weight: 1
 children:
   -
-    name: clothing
-    alias: false
-    translations:
-      ar: 'ملابس'
-      en: Clothing
-      fr: Vêtements
-    image: false
-    children:
-      -
-        name: 'bathing-suits-sarongs'
-        alias: false
-        translations:
-          ar: 'لباس البحر و العباءات'
-          en: 'Bathing Suits & Sarongs'
-          fr: 'Maillots De Bain & Paréos'
-        image: false
-        children:
-          -
-            name: 'Bathing Suits'
-            alias: '/bathing-suits'
-            translations:
-              ar: 'لباس البحر'
-              en: 'Bathing Suits'
-              fr: 'Maillots De Bain'
-            image: 'bathing-suit.jpg'
-            children: false
-          -
-            name: sarongs
-            alias: '/sarongs'
-            translations:
-              ar: 'العباءات'
-              en: Sarongs
-              fr: 'Paréos Femme'
-            image: 'sarongs.jpg'
-            children: false
-      -
-        name: coats
-        alias: '/coats'
-        translations:
-          ar: 'المعاطف'
-          en: Coats
-          fr: Manteaux
-        image: 'coat.jpg'
-      -
-        name: dresses
-        alias: '/dresses'
-        translations:
-          ar: 'فساتين'
-          en: Dresses
-          fr: Robes
-        image: 'dresses.jpg'
-      -
-        name: jackets
-        alias: '/jackets'
-        translations:
-          ar: 'السترات'
-          en: Jackets
-          fr: Vestes
-        image: 'jacket.jpg'
-      -
-        name: jeans
-        alias: '/jeans'
-        translations:
-          ar: 'جينز'
-          en: Jeans
-          fr: Jeans
-        image: 'jeans.jpg'
-      -
-        name: 'jumpsuits-overalls'
-        alias: '/jumpsuits-overalls'
-        translations:
-          ar: 'بذلة & زرة'
-          en: 'Jumpsuits & Overalls'
-          fr: 'Combinaisons & Salopettes'
-        image: false
-        children:
-          -
-            name: jumpsuits
-            alias: '/jumpsuits'
-            translations:
-              ar: 'بذلة'
-              en: Jumpsuits
-              fr: Combinaisons
-            image: 'jumpsuits.jpg'
-            children: false
-          -
-            name: overalls
-            alias: '/overalls'
-            translations:
-              ar: 'زرة'
-              en: Overalls
-              fr: Salopette
-            image: 'overalls.jpg'
-            children: false
-      -
-        name: lingerie
-        alias: '/lingerie'
-        translations:
-          ar: 'الملابس الداخلية'
-          en: Lingerie
-          fr: Lingerie
-        image: 'lingerie.jpg'
-      -
-        name: 'maternity-wear'
-        alias: '/maternity-wear'
-        translations:
-          ar: 'ملابس الأمومة'
-          en: 'Maternity Wear'
-          fr: 'Future Maman'
-        image: false
-        children: 'maternity-wear.jpg'
-      -
-        name: pants
-        alias: '/pants'
-        translations:
-          ar: 'سروال'
-          en: Pants
-          fr: Pantalons
-        image: false
-        children: false
-      -
-        name: pyjamas
-        alias: '/pyjamas'
-        translations:
-          ar: 'لباس النوم'
-          en: Pyjamas
-          fr: 'Vêtements de nuit'
-        image: 'pyjama.jpg'
-        children: false
-      -
-        name: 'shorts-cropped-pants'
-        alias: '/shorts-cropped-pants'
-        translations:
-          ar: 'السراويل القصيرة'
-          en: 'Shorts & Cropped Pants'
-          fr: 'Shorts & Pantacourts'
-        image: false
-        children:
-          -
-            name: 'cropped-pants'
-            alias: '/cropped-pants'
-            translations:
-              ar: 'السراويل المقصوصة'
-              en: 'Cropped Pants'
-              fr: 'Pantacourts'
-            image: 'cropped-pants.jpg'
-            children: false
-          -
-            name: short
-            alias: '/short'
-            translations:
-              ar: 'السراويل القصيرة'
-              en: Short
-              fr: Short
-            image: 'shorts.jpg'
-            children: false
-      -
-        name: skirts
-        alias: '/skirts'
-        translations:
-          ar: 'التنانير'
-          en: Skirts
-          fr: Jupes
-        image: 'skirts.jpg'
-        children: false
-      -
-        name: 'sportswear-dancewear'
-        alias: '/sportswear-dancewear'
-        translations:
-          ar: 'ملابس رياضية و رقص'
-          en: 'Sportswear & Dancewear'
-          fr: 'Sport et Dance'
-        image: false
-        children:
-          -
-            name: dancewear
-            alias: '/dancewear'
-            translations:
-              ar: 'ملابس الرقص'
-              en: Dancewear
-              fr: Dance
-            image: 'dance-wear.jpg'
-            children: false
-          -
-            name: sportswear
-            alias: '/sportswear'
-            translations:
-              ar: 'ملابس رياضية'
-              en: Sportswear
-              fr: Sport
-            image: 'sport.jpg'
-            children: false
-      -
-        name: suits
-        alias: false
-        translations:
-          ar: 'بذلة'
-          en: Suits
-          fr: Tailleurs
-        image: 'suits.jpg'
-        children: false
-      -
-        name: 'sweaters-knitwear'
-        alias: '/sweaters-knitwear'
-        translations:
-          ar: 'قميص صوفي و تريكو'
-          en: 'Sweaters & Knitwear'
-          fr: 'Pulls & Mailles'
-        image: 'sweaters-knitwear.jpg'
-        children: false
-      -
-        name: tops
-        alias: '/tops'
-        translations:
-          ar: 'ملابس الفوق'
-          en: Tops
-          fr: Hauts
-        image: 'top.png'
-        children: false
-      -
-        name: wedding
-        alias: '/wedding'
-        translations:
-          ar: 'زفاف'
-          en: Wedding
-          fr: Mariage
-        image: 'wedding.jpg'
-        children: false
-  -
     name: bag
-    alias: '/bag'
+    alias: /bag
     translations:
-      ar: 'حقائب'
       en: BAG
       fr: Sacs
-    image: 'bags.jpg'
+      ar: حقائب
+    image:
+      file_name: bags.jpg
+      directory: product-category
+      uri: 'public://product-category/bags.jpg'
+    menu: true
     children:
       -
         name: backpacks
-        alias: '/backpacks'
+        alias: /backpacks
         translations:
-          ar: 'حقائب الظهر'
           en: Backpacks
           fr: 'Sacs à dos'
-        image: 'backpacks.jpg'
+          ar: 'حقائب الظهر'
+        image:
+          file_name: backpacks.jpg
+          directory: product-category
+          uri: 'public://product-category/backpacks.jpg'
+        menu: true
         children: false
       -
-        name: 'leather-bag'
-        alias: '/leather-bag'
+        name: leather-bag
+        alias: /leather-bag
         translations:
-          ar: 'حقائب جلدية'
           en: 'Leather bag'
           fr: 'Sac en cuir'
-        image: 'leather-bags.jpg'
+          ar: 'حقائب جلدية'
+        image:
+          file_name: leather-bags.jpg
+          directory: product-category
+          uri: 'public://product-category/leather-bags.jpg'
+        menu: true
         children: false
       -
-        name: 'satchels-briefcases'
-        alias: '/satchels-briefcases'
+        name: satchels-briefcases
+        alias: /satchels-briefcases
         translations:
-          ar: 'حقائب مدرسية & حقائب مكتبية'
           en: 'Satchels & Briefcases'
           fr: 'Sacoches & Mallettes'
-        image: 'satchels.jpg'
-        children: false
+          ar: 'حقائب مدرسية & حقائب مكتبية'
+        image:
+          file_name: satchels.jpg
+          directory: product-category
+          uri: 'public://product-category/satchels.jpg'
+        menu: true
       -
-        name: 'small Leather Goods'
-        alias: '/small-leather-goods'
+        name: small-leather-goods
+        alias: /small-leather-goods
         translations:
-          ar: 'حقائب جلدية صغيرة'
           en: 'Small Leather Goods'
           fr: 'Petite maroquinerie'
-        image: 'small-leather-goods.jpg'
+          ar: 'حقائب جلدية صغيرة'
+        image:
+          file_name: small-leather-goods.jpg
+          directory: product-category
+          uri: 'public://product-category/small-leather-goods.jpg'
+        menu: true
         children: false
   -
-    name: shoes
-    alias: '/shoes'
+    name: Clothing
+    alias: false
     translations:
-      ar: 'أحذية'
-      en: SHOES
-      fr: CHAUSSURES
+      en: Clothing
+      fr: Vêtements
+      ar: ملابس
     image: false
+    menu: true
     children:
       -
-        name: 'ankle-boots'
-        alias: '/ankle-boots'
+        name: 'Bathing Suits & Sarongs'
+        alias: false
         translations:
-          ar: 'أحذية الكاحل'
+          en: 'Bathing Suits & Sarongs'
+          fr: 'Maillots De Bain & Paréos'
+          ar: 'لباس البحر و العباءات'
+        image: false
+        menu: true
+        children:
+          -
+            name: bathing-suits
+            alias: /bathing-suits
+            translations:
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+              ar: 'لباس البحر'
+            image:
+              file_name: bathing-suit.jpg
+              directory: product-category
+              uri: 'public://product-category/bathing-suit.jpg'
+            menu: true
+            children: false
+          -
+            name: sarongs
+            alias: /sarongs
+            translations:
+              en: Sarongs
+              fr: 'Paréos Femme'
+              ar: العباءات
+            image:
+              file_name: sarongs.jpg
+              directory: product-category
+              uri: 'public://product-category/sarongs.jpg'
+            menu: true
+            children: false
+      -
+        name: coats
+        alias: /coats
+        translations:
+          en: Coats
+          fr: Manteaux
+          ar: المعاطف
+        image:
+          file_name: coat.jpg
+          directory: product-category
+          uri: 'public://product-category/coat.jpg'
+        menu: true
+        children:
+          -
+            name: bathing-suits
+            alias: /bathing-suits
+            translations:
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+              ar: 'لباس البحر'
+            image:
+              file_name: bathing-suit.jpg
+              directory: product-category
+              uri: 'public://product-category/bathing-suit.jpg'
+            menu: true
+            children: false
+          -
+            name: sarongs
+            alias: /sarongs
+            translations:
+              en: Sarongs
+              fr: 'Paréos Femme'
+              ar: العباءات
+            image:
+              file_name: sarongs.jpg
+              directory: product-category
+              uri: 'public://product-category/sarongs.jpg'
+            menu: true
+            children: false
+      -
+        name: dresses
+        alias: /dresses
+        translations:
+          en: Dresses
+          fr: Robes
+          ar: فساتين
+        image:
+          file_name: dresses.jpg
+          directory: product-category
+          uri: 'public://product-category/dresses.jpg'
+        menu: true
+        children:
+          -
+            name: bathing-suits
+            alias: /bathing-suits
+            translations:
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+              ar: 'لباس البحر'
+            image:
+              file_name: bathing-suit.jpg
+              directory: product-category
+              uri: 'public://product-category/bathing-suit.jpg'
+            menu: true
+            children: false
+          -
+            name: sarongs
+            alias: /sarongs
+            translations:
+              en: Sarongs
+              fr: 'Paréos Femme'
+              ar: العباءات
+            image:
+              file_name: sarongs.jpg
+              directory: product-category
+              uri: 'public://product-category/sarongs.jpg'
+            menu: true
+            children: false
+      -
+        name: jackets
+        alias: /jackets
+        translations:
+          en: Jackets
+          fr: Vestes
+          ar: السترات
+        image:
+          file_name: jacket.jpg
+          directory: product-category
+          uri: 'public://product-category/jacket.jpg'
+        menu: true
+        children:
+          -
+            name: bathing-suits
+            alias: /bathing-suits
+            translations:
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+              ar: 'لباس البحر'
+            image:
+              file_name: bathing-suit.jpg
+              directory: product-category
+              uri: 'public://product-category/bathing-suit.jpg'
+            menu: true
+            children: false
+          -
+            name: sarongs
+            alias: /sarongs
+            translations:
+              en: Sarongs
+              fr: 'Paréos Femme'
+              ar: العباءات
+            image:
+              file_name: sarongs.jpg
+              directory: product-category
+              uri: 'public://product-category/sarongs.jpg'
+            menu: true
+            children: false
+      -
+        name: jeans
+        alias: /jeans
+        translations:
+          en: Jeans
+          fr: Jeans
+          ar: جينز
+        image:
+          file_name: jeans.jpg
+          directory: product-category
+          uri: 'public://product-category/jeans.jpg'
+        menu: true
+        children:
+          -
+            name: bathing-suits
+            alias: /bathing-suits
+            translations:
+              en: 'Bathing Suits'
+              fr: 'Maillots De Bain'
+              ar: 'لباس البحر'
+            image:
+              file_name: bathing-suit.jpg
+              directory: product-category
+              uri: 'public://product-category/bathing-suit.jpg'
+            menu: true
+            children: false
+          -
+            name: sarongs
+            alias: /sarongs
+            translations:
+              en: Sarongs
+              fr: 'Paréos Femme'
+              ar: العباءات
+            image:
+              file_name: sarongs.jpg
+              directory: product-category
+              uri: 'public://product-category/sarongs.jpg'
+            menu: true
+            children: false
+      -
+        name: jumpsuits-overalls
+        alias: /jumpsuits-overalls
+        translations:
+          en: 'Jumpsuits & Overalls'
+          fr: 'Combinaisons & Salopettes'
+          ar: 'بذلة & زرة'
+        image: false
+        menu: true
+        children:
+          -
+            name: jumpsuits
+            alias: /jumpsuits
+            translations:
+              en: Jumpsuits
+              fr: Combinaisons
+              ar: بذلة
+            image:
+              file_name: jumpsuits.jpg
+              directory: product-category
+              uri: 'public://product-category/jumpsuits.jpg'
+            menu: true
+            children: false
+          -
+            name: overalls
+            alias: /overalls
+            translations:
+              en: Overalls
+              fr: Salopette
+              ar: زرة
+            image:
+              file_name: overalls.jpg
+              directory: product-category
+              uri: 'public://product-category/overalls.jpg'
+            menu: true
+            children: false
+      -
+        name: lingerie
+        alias: /lingerie
+        translations:
+          en: Lingerie
+          fr: Lingerie
+          ar: 'الملابس الداخلية'
+        image:
+          file_name: lingerie.jpg
+          directory: product-category
+          uri: 'public://product-category/lingerie.jpg'
+        menu: true
+        children:
+          -
+            name: jumpsuits
+            alias: /jumpsuits
+            translations:
+              en: Jumpsuits
+              fr: Combinaisons
+              ar: بذلة
+            image:
+              file_name: jumpsuits.jpg
+              directory: product-category
+              uri: 'public://product-category/jumpsuits.jpg'
+            menu: true
+            children: false
+          -
+            name: overalls
+            alias: /overalls
+            translations:
+              en: Overalls
+              fr: Salopette
+              ar: زرة
+            image:
+              file_name: overalls.jpg
+              directory: product-category
+              uri: 'public://product-category/overalls.jpg'
+            menu: true
+            children: false
+      -
+        name: maternity-wear
+        alias: /maternity-wear
+        translations:
+          en: 'Maternity Wear'
+          fr: 'Future Maman'
+          ar: 'ملابس الأمومة'
+        image: false
+        menu: true
+        children:
+          -
+            name: jumpsuits
+            alias: /jumpsuits
+            translations:
+              en: Jumpsuits
+              fr: Combinaisons
+              ar: بذلة
+            image:
+              file_name: jumpsuits.jpg
+              directory: product-category
+              uri: 'public://product-category/jumpsuits.jpg'
+            menu: true
+            children: false
+          -
+            name: overalls
+            alias: /overalls
+            translations:
+              en: Overalls
+              fr: Salopette
+              ar: زرة
+            image:
+              file_name: overalls.jpg
+              directory: product-category
+              uri: 'public://product-category/overalls.jpg'
+            menu: true
+            children: false
+      -
+        name: pants
+        alias: /pants
+        translations:
+          en: Pants
+          fr: Pantalons
+          ar: سروال
+        image: false
+        menu: true
+        children:
+          -
+            name: jumpsuits
+            alias: /jumpsuits
+            translations:
+              en: Jumpsuits
+              fr: Combinaisons
+              ar: بذلة
+            image:
+              file_name: jumpsuits.jpg
+              directory: product-category
+              uri: 'public://product-category/jumpsuits.jpg'
+            menu: true
+            children: false
+          -
+            name: overalls
+            alias: /overalls
+            translations:
+              en: Overalls
+              fr: Salopette
+              ar: زرة
+            image:
+              file_name: overalls.jpg
+              directory: product-category
+              uri: 'public://product-category/overalls.jpg'
+            menu: true
+            children: false
+      -
+        name: pyjamas
+        alias: /pyjamas
+        translations:
+          en: Pyjamas
+          fr: 'Vêtements de nuit'
+          ar: 'لباس النوم'
+        image:
+          file_name: pyjama.jpg
+          directory: product-category
+          uri: 'public://product-category/pyjama.jpg'
+        menu: true
+        children:
+          -
+            name: jumpsuits
+            alias: /jumpsuits
+            translations:
+              en: Jumpsuits
+              fr: Combinaisons
+              ar: بذلة
+            image:
+              file_name: jumpsuits.jpg
+              directory: product-category
+              uri: 'public://product-category/jumpsuits.jpg'
+            menu: true
+            children: false
+          -
+            name: overalls
+            alias: /overalls
+            translations:
+              en: Overalls
+              fr: Salopette
+              ar: زرة
+            image:
+              file_name: overalls.jpg
+              directory: product-category
+              uri: 'public://product-category/overalls.jpg'
+            menu: true
+            children: false
+      -
+        name: shorts-cropped-pants
+        alias: /shorts-cropped-pants
+        translations:
+          en: 'Shorts & Cropped Pants'
+          fr: 'Shorts & Pantacourts'
+          ar: 'السراويل القصيرة'
+        image: false
+        menu: true
+        children:
+          -
+            name: cropped-pants
+            alias: /cropped-pants
+            translations:
+              en: 'Cropped Pants'
+              fr: Pantacourts
+              ar: 'السراويل المقصوصة'
+            image:
+              file_name: cropped-pants.jpg
+              directory: product-category
+              uri: 'public://product-category/cropped-pants.jpg'
+            menu: true
+            children: false
+          -
+            name: short
+            alias: /short
+            translations:
+              en: Short
+              fr: Short
+              ar: 'السراويل القصيرة'
+            image:
+              file_name: shorts.jpg
+              directory: product-category
+              uri: 'public://product-category/shorts.jpg'
+            menu: true
+            children: false
+      -
+        name: skirts
+        alias: /skirts
+        translations:
+          en: Skirts
+          fr: Jupes
+          ar: التنانير
+        image:
+          file_name: skirts.jpg
+          directory: product-category
+          uri: 'public://product-category/skirts.jpg'
+        menu: true
+        children:
+          -
+            name: cropped-pants
+            alias: /cropped-pants
+            translations:
+              en: 'Cropped Pants'
+              fr: Pantacourts
+              ar: 'السراويل المقصوصة'
+            image:
+              file_name: cropped-pants.jpg
+              directory: product-category
+              uri: 'public://product-category/cropped-pants.jpg'
+            menu: true
+            children: false
+          -
+            name: short
+            alias: /short
+            translations:
+              en: Short
+              fr: Short
+              ar: 'السراويل القصيرة'
+            image:
+              file_name: shorts.jpg
+              directory: product-category
+              uri: 'public://product-category/shorts.jpg'
+            menu: true
+            children: false
+      -
+        name: sportswear-dancewear
+        alias: /sportswear-dancewear
+        translations:
+          en: 'Sportswear & Dancewear'
+          fr: 'Sport et Dance'
+          ar: 'ملابس رياضية و رقص'
+        image: false
+        menu: true
+        children:
+          -
+            name: dancewear
+            alias: /dancewear
+            translations:
+              en: Dancewear
+              fr: Dance
+              ar: 'ملابس الرقص'
+            image:
+              file_name: dance-wear.jpg
+              directory: product-category
+              uri: 'public://product-category/dance-wear.jpg'
+            menu: true
+            children: false
+          -
+            name: sportswear
+            alias: /sportswear
+            translations:
+              en: Sportswear
+              fr: Sport
+              ar: 'ملابس رياضية'
+            image:
+              file_name: sport.jpg
+              directory: product-category
+              uri: 'public://product-category/sport.jpg'
+            menu: true
+            children: false
+      -
+        name: Suits
+        alias: false
+        translations:
+          en: Suits
+          fr: Tailleurs
+          ar: بذلة
+        image:
+          file_name: suits.jpg
+          directory: product-category
+          uri: 'public://product-category/suits.jpg'
+        menu: true
+        children:
+          -
+            name: dancewear
+            alias: /dancewear
+            translations:
+              en: Dancewear
+              fr: Dance
+              ar: 'ملابس الرقص'
+            image:
+              file_name: dance-wear.jpg
+              directory: product-category
+              uri: 'public://product-category/dance-wear.jpg'
+            menu: true
+            children: false
+          -
+            name: sportswear
+            alias: /sportswear
+            translations:
+              en: Sportswear
+              fr: Sport
+              ar: 'ملابس رياضية'
+            image:
+              file_name: sport.jpg
+              directory: product-category
+              uri: 'public://product-category/sport.jpg'
+            menu: true
+            children: false
+      -
+        name: sweaters-knitwear
+        alias: /sweaters-knitwear
+        translations:
+          en: 'Sweaters & Knitwear'
+          fr: 'Pulls & Mailles'
+          ar: 'قميص صوفي و تريكو'
+        image:
+          file_name: sweaters-knitwear.jpg
+          directory: product-category
+          uri: 'public://product-category/sweaters-knitwear.jpg'
+        menu: true
+        children:
+          -
+            name: dancewear
+            alias: /dancewear
+            translations:
+              en: Dancewear
+              fr: Dance
+              ar: 'ملابس الرقص'
+            image:
+              file_name: dance-wear.jpg
+              directory: product-category
+              uri: 'public://product-category/dance-wear.jpg'
+            menu: true
+            children: false
+          -
+            name: sportswear
+            alias: /sportswear
+            translations:
+              en: Sportswear
+              fr: Sport
+              ar: 'ملابس رياضية'
+            image:
+              file_name: sport.jpg
+              directory: product-category
+              uri: 'public://product-category/sport.jpg'
+            menu: true
+            children: false
+      -
+        name: tops
+        alias: /tops
+        translations:
+          en: Tops
+          fr: Hauts
+          ar: 'ملابس الفوق'
+        image:
+          file_name: top.png
+          directory: product-category
+          uri: 'public://product-category/top.png'
+        menu: true
+        children:
+          -
+            name: dancewear
+            alias: /dancewear
+            translations:
+              en: Dancewear
+              fr: Dance
+              ar: 'ملابس الرقص'
+            image:
+              file_name: dance-wear.jpg
+              directory: product-category
+              uri: 'public://product-category/dance-wear.jpg'
+            menu: true
+            children: false
+          -
+            name: sportswear
+            alias: /sportswear
+            translations:
+              en: Sportswear
+              fr: Sport
+              ar: 'ملابس رياضية'
+            image:
+              file_name: sport.jpg
+              directory: product-category
+              uri: 'public://product-category/sport.jpg'
+            menu: true
+            children: false
+      -
+        name: wedding
+        alias: /wedding
+        translations:
+          en: Wedding
+          fr: Mariage
+          ar: زفاف
+        image:
+          file_name: wedding.jpg
+          directory: product-category
+          uri: 'public://product-category/wedding.jpg'
+        menu: true
+        children:
+          -
+            name: dancewear
+            alias: /dancewear
+            translations:
+              en: Dancewear
+              fr: Dance
+              ar: 'ملابس الرقص'
+            image:
+              file_name: dance-wear.jpg
+              directory: product-category
+              uri: 'public://product-category/dance-wear.jpg'
+            menu: true
+            children: false
+          -
+            name: sportswear
+            alias: /sportswear
+            translations:
+              en: Sportswear
+              fr: Sport
+              ar: 'ملابس رياضية'
+            image:
+              file_name: sport.jpg
+              directory: product-category
+              uri: 'public://product-category/sport.jpg'
+            menu: true
+            children: false
+  -
+    name: shoes
+    alias: /shoes
+    translations:
+      en: SHOES
+      fr: CHAUSSURES
+      ar: أحذية
+    image: false
+    menu: true
+    children:
+      -
+        name: ankle-boots
+        alias: /ankle-boots
+        translations:
           en: 'Ankle Boots'
           fr: 'Bottines & low boots'
-        image: 'shoes.jpg'
+          ar: 'أحذية الكاحل'
+        image:
+          file_name: shoes.jpg
+          directory: product-category
+          uri: 'public://product-category/shoes.jpg'
+        menu: true
         children: false
       -
-        name: 'ballet flats'
-        alias: '/ballet-flats'
+        name: ballet-flats
+        alias: /ballet-flats
         translations:
-          ar: 'أحذية منخفضة'
           en: 'Ballet Flats'
-          fr: 'Ballerines'
-        image: 'ballet-flats.jpg'
+          fr: Ballerines
+          ar: 'أحذية منخفضة'
+        image:
+          file_name: ballet-flats.jpg
+          directory: product-category
+          uri: 'public://product-category/ballet-flats.jpg'
+        menu: true
         children: false
       -
         name: boots
-        alias: '/boots'
+        alias: /boots
         translations:
-          ar: 'أحذية عالية'
           en: Boots
           fr: Bottes
-        image: 'boots.jpg'
+          ar: 'أحذية عالية'
+        image:
+          file_name: boots.jpg
+          directory: product-category
+          uri: 'public://product-category/boots.jpg'
+        menu: true
         children: false
       -
-        name: 'dance shoes'
-        alias: '/dance-shoes'
+        name: dance-shoes
+        alias: /dance-shoes
         translations:
-          ar: 'أحذية الرقص'
           en: 'Dance Shoes'
           fr: 'Chaussures de danse'
-        image: 'dance-shoes.jpg'
+          ar: 'أحذية الرقص'
+        image:
+          file_name: dance-shoes.jpg
+          directory: product-category
+          uri: 'public://product-category/dance-shoes.jpg'
+        menu: true
         children: false
       -
-        name: 'lace up shoes'
-        alias: '/lace-up-shoes'
+        name: lace-up-shoes
+        alias: /lace-up-shoes
         translations:
-          ar: 'أحذية السير'
           en: 'Lace Up Shoes'
           fr: 'Chaussures à lacets'
-        image: 'lace-up-shoes.jpg'
+          ar: 'أحذية السير'
+        image:
+          file_name: lace-up-shoes.jpg
+          directory: product-category
+          uri: 'public://product-category/lace-up-shoes.jpg'
+        menu: true
         children: false
       -
         name: loafers
-        alias: '/loafers'
+        alias: /loafers
         translations:
-          ar: 'أحذية بدون كعب'
           en: Loafers
-          fr: 'Mocassins'
-        image: 'loafers.jpg'
+          fr: Mocassins
+          ar: 'أحذية بدون كعب'
+        image:
+          file_name: loafers.jpg
+          directory: product-category
+          uri: 'public://product-category/loafers.jpg'
+        menu: true
         children: false
       -
-        name: 'pumps, heels'
-        alias: '/pumps-heels'
+        name: pumps-heels
+        alias: /pumps-heels
         translations:
-          ar: 'أحذية الكعب'
           en: 'Pumps, Heels'
-          fr: 'Escarpins'
-        image: 'pumps-heels.jpg'
+          fr: Escarpins
+          ar: 'أحذية الكعب'
+        image:
+          file_name: pumps-heels.jpg
+          directory: product-category
+          uri: 'public://product-category/pumps-heels.jpg'
+        menu: true
         children: false
       -
         name: sandals
-        alias: '/sandals'
+        alias: /sandals
         translations:
-          ar: 'خف, صندل'
           en: Sandals
           fr: 'Sandales, nu-pieds'
+          ar: 'خف, صندل'
         image: false
+        menu: true
         children: false
       -
         name: slippers
-        alias: '/slippers'
+        alias: /slippers
         translations:
-          ar: 'النعال'
           en: Slippers
           fr: 'Chaussons & pantoufles'
-        image: 'slippers.jpg'
+          ar: النعال
+        image:
+          file_name: slippers.jpg
+          directory: product-category
+          uri: 'public://product-category/slippers.jpg'
+        menu: true
         children: false
       -
-        name: 'sneakers & sport sneakers'
-        alias: '/sneakers-sport-sneakers'
+        name: sneakers-sport-sneakers
+        alias: /sneakers-sport-sneakers
         translations:
-          ar: 'أحذية رياضية & أحذية شبه رياضية'
           en: 'Sneakers & Sport Sneakers'
           fr: 'Baskets & Chaussures de sport'
-        image: 'sneakers.jpg'
+          ar: 'أحذية رياضية & أحذية شبه رياضية'
+        image:
+          file_name: sneakers.jpg
+          directory: product-category
+          uri: 'public://product-category/sneakers.jpg'
+        menu: true
         children: false

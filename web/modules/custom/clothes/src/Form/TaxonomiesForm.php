@@ -19,12 +19,15 @@ class TaxonomiesForm extends FormBase {
   protected $fileExtension;
   protected $buttonsValue;
   protected $imageSettings;
+  protected $menuSettings;
+  protected $menuIds;
   protected $configurationYML;
 
   public function __construct() {
     $this->exportDir = DRUPAL_ROOT.'/'.drupal_get_path('module', 'clothes').'/export/config/';
     $this->imagesDir = DRUPAL_ROOT.'/'.drupal_get_path('module', 'clothes').'/export/images/';
     $this->fileExtension = '.terms.yml';
+    $this->menuIds = [];
     $this->configurationYML = '';
     $this->buttonsValue = [
       'import' => $this->t('Import from Yaml file'),
@@ -197,11 +200,12 @@ class TaxonomiesForm extends FormBase {
     /** @var \Drupal\taxonomy\TermStorage $storage */
     $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
     $terms = $storage->loadTree($vocabularyName, 0, null, true);
-    $taxonomiesTerms = $targetIds = $parents = [];
+    $taxonomiesTerms = $targetIds = $parents = $menus = [];
 
     $nameTranslations = [];
     $nameAlias = [];
     $nameImages = [];
+    $nameMenuItems = [];
     $imagesField = [];
 
     foreach ($terms as $term) {
@@ -224,6 +228,20 @@ class TaxonomiesForm extends FormBase {
       $nameTranslations[$name] = $translations;
       $nameAlias[$name] = $alias;
       $nameImages[$name] = $this->getImageUri($term, $imagesField[$name]);
+      $menu =  taxonomy_menu_ui_get_menu_link_defaults($term);
+      $nameMenuItems[$name] = !empty($menu['entity_id']) ? array_intersect_key(
+        $menu,[
+        'entity_id' => 0,
+          'id' => '',
+          'title' => '',
+          'title_max_length' => 255,
+          'description' => '',
+          'menu_name' => 'main',
+          'parent' => '',
+          'weight' => 0
+        ]
+      ) : FALSE;
+
       if ($parent) {
         $parents[$tid] = $parent;
         $path = [];
@@ -248,10 +266,22 @@ class TaxonomiesForm extends FormBase {
       }
     }
 
-    $taxonomiesTerms = $this->formatTree($taxonomiesTerms, $nameTranslations, $nameAlias, $nameImages);
+    $taxonomiesTerms = $this->formatTree($taxonomiesTerms, $nameTranslations, $nameAlias, $nameImages, $nameMenuItems);
+
+    $menuSetings = [];
+    foreach ($nameMenuItems as $menu) {
+      if(!empty($menu['menu_name'])) {
+        $menuSetings['menu_name'] = $menu['menu_name'];
+        $menuSetings['title_max_length'] = $menu['title_max_length'] ?: 100;
+        $menuSetings['weight'] = $menu['weight'] ?: 0;
+        break;
+      }
+    }
+
     $taxonomiesTerms = [
       'name' =>$vocabularyName,
       'image_settings' => $this->imageSettings,
+      'menu_settings' => $menuSetings,
       'children' =>$taxonomiesTerms,
     ];
 
@@ -266,7 +296,7 @@ class TaxonomiesForm extends FormBase {
     @mkdir($this->exportDir);
     file_put_contents(
       $this->exportDir.$vocabularyName.$this->fileExtension,
-      Yaml::dump($taxonomiesTerms, 8)
+      Yaml::dump($taxonomiesTerms, 8, 2)
     );
   }
 
@@ -322,25 +352,29 @@ class TaxonomiesForm extends FormBase {
     }
 
     $this->imageSettings = $terms['image_settings'];
+    $this->menuSettings = $terms['menu_settings'];
     foreach ($terms['children'] as $term) {
       $this->clothesCreateTerm(
         $term,
         $vocabularyName,
         0,
+        NULL,
         \Drupal::service('file_system')
       );
     }
+
+    return TRUE;
   }
 
   /**
    * @param $item
    * @param $vid
-   * @param int $parent
-   * @param $destDir
-   * @param $fieldName
+   * @param int $parentId
    * @param \Drupal\Core\File\FileSystem $fileSystem
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
-  protected function clothesCreateTerm ($item, $vid, $parent=0,FileSystem $fileSystem) {
+  protected function clothesCreateTerm ($item, $vid, $parentId=0, $parentName, FileSystem $fileSystem) {
     $term = [
       'vid' => $vid,
       'name' => $item['translations']['en'],
@@ -352,8 +386,8 @@ class TaxonomiesForm extends FormBase {
       ];
     }
     $term = Term::create($term);
-    if ($parent) {
-      $term->parent = ['target_id' => $parent];
+    if ($parentId) {
+      $term->parent = ['target_id' => $parentId];
     }
     unset($item['translations']['en']);
     foreach ($item['translations'] as $langCode => $translation) {
@@ -362,41 +396,68 @@ class TaxonomiesForm extends FormBase {
       ]);
     }
     if (!empty($image = $item['image'])){
-      $imageName='';
-      if (is_array($image)){
-        $imageName = $image['file_name'];
-      } else {
-        $imageName = $image;
-      }
+      $imageName = is_array($image) ? $image['file_name'] : $image;
       $image = $this->imagesDir.$vid.'/'.$imageName;
       if (file_exists($image)){
-        $imageDest = $fileSystem->copy($image, 'public://'.$this->imageSettings['default_image_directory'], FileSystem::EXISTS_REPLACE);
-        $this->setImage($term, $imageDest);
+        $imageDest = 'public://'.$this->imageSettings['default_image_directory'];
+        @$fileSystem->mkdir($imageDest, NULL, TRUE);
+        $fileSystem->copy(
+          $image,
+          $fileSystem->realpath($imageDest).'/'.$imageName,
+          FileSystem::EXISTS_REPLACE
+        );
+        $this->setImage($term, $imageDest.'/'.$imageName);
       }
     }
     $term->save();
+
+    if($item['menu']) {
+      if(!is_array($item['menu'])) {
+        $item['menu'] = ['title' => is_string($item['menu']) ? $item['menu'] : $term->getTranslation('en')->getName()];
+      }
+
+      $item['menu'] = array_merge(
+        $this->menuSettings,
+        $item['menu']
+      );
+      $values = [
+        'enabled' => 1,
+        'id' => "",
+        'entity_id' => 0,
+        'title' => $item['menu']['title'],
+        'description' => "",
+        'parent' => $this->menuIds[$parentName] ?? ($item['menu']['menu_name'].':'),
+        'weight' => $item['menu']['weight'],
+        'menu_name' => $item['menu']['menu_name'],
+      ];
+      _menu_ui_taxonomy_term_save($term, $values);
+      $this->menuIds[$item['name']] = taxonomy_menu_ui_get_menu_link_defaults($term)['id'];
+      $term->save();
+    }
+
 
     if (empty($item['children'])){
       return;
     }
 
     foreach ($item['children'] as $child ) {
-      $this->clothesCreateTerm($child, $vid, $term->tid->getValue()[0]['value'],$fileSystem);
+      $this->clothesCreateTerm($child, $vid, $term->tid->getValue()[0]['value'], $item['name'], $fileSystem);
     }
   }
 
-  function formatTree ($taxonomiesTerms, $nameTranslations, $nameAlias, $images) {
+  function formatTree ($taxonomiesTerms, $nameTranslations, $nameAlias, $images, $nameMenuItems) {
     $formatted = $children = [];
     foreach ($taxonomiesTerms as $key => $item) {
       if ('children' == $key) continue;
       if(!empty($item['children']) && is_array($item['children']) ) {
-        $children = $this->formatTree($item['children'], $nameTranslations, $nameAlias, $images);
+        $children = $this->formatTree($item['children'], $nameTranslations, $nameAlias, $images, $nameMenuItems);
       }
       $formatted[] = [
         'name' => $key,
         'alias' => $nameAlias[$key],
         'translations' => $nameTranslations[$key] ?? FALSE,
         'image' => $images[$key] ? $images[$key] : FALSE,
+        'menu' => $nameMenuItems[$key] ? $nameMenuItems[$key] : FALSE,
         'children' => empty($children) ? FALSE : $children,
       ];
     }
