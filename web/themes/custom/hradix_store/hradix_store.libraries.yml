@@ -1,0 +1,10 @@
+style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/hradix_store.style.css: {}
+  js:
+    assets/js/hradix_store.script.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

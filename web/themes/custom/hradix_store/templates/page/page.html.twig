@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+<div class="page">
+  {% embed '@hradix_store/navbar/navbar.twig' with {
+    placement: 'sticky-top',
+    container: 'fixed',
+    color: 'light',
+    utility_classes: ['bg-bg-dark'],
+  } %}
+
+    {% block branding %}
+      {% if page.navbar_branding %}
+        {{ page.navbar_branding }}
+      {% endif %}
+    {% endblock %}
+
+    {% block left %}
+      {% if page.navbar_left %}
+        <div class="mr-auto">
+          {{ page.navbar_left }}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block right %}
+      {% if page.navbar_right %}
+        {{ page.navbar_right }}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+
+  <main class="pt-sm-5 pb-sm-5 {% if not page.header_top and not page.header_message%}pt-md-5 pb-md-5 {% else %}pt-md-0 pb-md-0{% endif %}">
+    {% if page.header_top or page.heder_top  or page.header_message %}
+      <header class="page__header mb-3">
+        {% if page.header_message %}
+          {% set rendred_header_message = page.header_message|render %}
+          {% if rendred_header_message|striptags|length %}
+            <div class="container mb-3">
+              {{ rendred_header_message }}
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if page.header_top %}
+        <div class="container mb-3">
+          {{ page.header_top }}
+        </div>
+        {% endif %}
+        {% if page.header %}
+        <div class="container">
+          {{ page.header }}
+        </div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    {% if page.content %}
+      <div class="page__content">
+        <div class="container">
+          {{ page.content }}
+        </div>
+      </div>
+    {% endif %}
+  </main>
+
+  {% if page.footer %}
+    <footer class="page__footer">
+      <div class="container">
+        <div class="d-flex justify-content-md-between align-items-md-center">
+          {{ page.footer }}
+        </div>
+      </div>
+    </footer>
+  {% endif %}
+</div>

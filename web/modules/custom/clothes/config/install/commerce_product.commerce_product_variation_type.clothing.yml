@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: clothing
+label: Clothing
+orderItemType: default
+generateTitle: null
+traits: {  }
+locked: false
