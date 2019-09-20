@@ -6,6 +6,7 @@ use Drupal\Core\File\FileSystem;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Yaml\Yaml;
@@ -433,6 +434,23 @@ class TaxonomiesForm extends FormBase {
       _menu_ui_taxonomy_term_save($term, $values);
       $this->menuIds[$item['name']] = taxonomy_menu_ui_get_menu_link_defaults($term)['id'];
       $term->save();
+
+
+      $entitytype_manager = \Drupal::service('entity_type.manager');
+      $storageMenuLinkContent = $entitytype_manager->getStorage('menu_link_content');
+
+      $link = $storageMenuLinkContent->loadByProperties(['title' => $item['menu']['title']]);
+      /** @var MenuLinkContent $link */
+      $link = reset($link);
+      if ($link) {
+        foreach ($item['translations'] as $langCode => $translation) {
+          if (empty($translation) || $link->hasTranslation($langCode)) {
+            $link->removeTranslation($langCode);
+          }
+          $link->addTranslation($langCode, ['title' => $translation]);
+          $link->save();
+        }
+      }
     }
 
 
