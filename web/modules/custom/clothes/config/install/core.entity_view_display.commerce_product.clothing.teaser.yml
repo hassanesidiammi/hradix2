@@ -37,7 +37,7 @@ content:
     type: image
     weight: 1
     region: content
-    label: above
+    label: hidden
     settings:
       image_style: ''
       image_link: ''

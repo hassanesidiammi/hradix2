@@ -36,3 +36,4 @@ dependencies:
   - user
   - views
 version: 8.x-1.0-beta1
+core_incompatible: false
